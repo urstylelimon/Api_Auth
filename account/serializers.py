@@ -12,7 +12,6 @@ class  UserRegistrationSerializer(serializers.ModelSerializer):
         }
 
 #validiting Password
-
     def validate(self,attrs):
         passwword = attrs.get('password')
         passwword2 = attrs.get('password2')
@@ -22,7 +21,8 @@ class  UserRegistrationSerializer(serializers.ModelSerializer):
     
     def create(self, validated_data):
         return User.objects.create_user(**validated_data)
-    
+
+#LogIn
 class UserLoginSerilazer(serializers.ModelSerializer):
     email = serializers.EmailField(max_length = 255)
     class Meta:
